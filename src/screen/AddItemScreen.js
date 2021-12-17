@@ -6,6 +6,8 @@ const AddItemScreen = ({ navigation, route }) => {
     const { create } = useContext(Item)
     const [title, setTitle] = useState("");
     const [page, setPage] = useState("");
+    const [childcomment, setChildcomment ] = useState("");
+    const [teachercomment, setTeachercomment ] = useState("");
     return (
         <View>
             <Text style={styles.textLabel}>Book Name:</Text>
@@ -26,10 +28,28 @@ const AddItemScreen = ({ navigation, route }) => {
                     setPage(text)
                 }}
             />
+            <Text style={styles.textLabel}>Child Comments:</Text>
+            <TextInput
+                style={styles.textInput}
+                placeholder='Enter Comments on your Reading Experience'
+                value={childcomment}
+                onChangeText={(text) => {
+                    setChildcomment(text)
+                }}
+            />
+            <Text style={styles.textLabel}>Teacher Comments:</Text>
+            <TextInput
+                style={styles.textInput}
+                placeholder='*This Section is for your Teacher'
+                value={teachercomment}
+                onChangeText={(text) => {
+                    setTeachercomment(text)
+                }}
+            />
             <Button
                 title="Finish Note"
                 onPress={() => {
-                    create(title, page, () => navigation.pop());
+                    create(title, page, childcomment, teachercomment, () => navigation.pop());
                 }}
             />
         </View>
