@@ -13,8 +13,8 @@ const reducer = (state, action) => {
                     id: Math.floor(Math.random() * 999999),
                     title: action.payload.title,
                     page: action.payload.page,
-                    childcomment: action.payload.childcomment, 
-                    teachercomment: action.payload.teachercomment, 
+                    childcomment: action.payload.childcomment,
+                    teachercomment: action.payload.teachercomment,
                     date: new Date()
                 }
             ]
@@ -43,8 +43,8 @@ const reducer = (state, action) => {
                     id: action.payload.id,
                     title: action.payload.title,
                     page: action.payload.page,
-                    childcomment: action.payload.childcomment, 
-                    teachercomment: action.payload.teachercomment, 
+                    childcomment: action.payload.childcomment,
+                    teachercomment: action.payload.teachercomment,
                     date: new Date(action.payload.date),
                 }
             ];
@@ -67,7 +67,7 @@ export const ItemProvider = ({ children }) => {
         loadStorage();
     }, [STORAGE_KEY]);
     const addItem = (title, page, childcomment, teachercomment, callback) => {
-        dispatch({ type: ActionTypes.create, payload: { title, page, childcomment, teachercomment} })
+        dispatch({ type: ActionTypes.create, payload: { title, page, childcomment, teachercomment } })
         dispatch({ type: ActionTypes.save })
         if (callback) {
             callback();

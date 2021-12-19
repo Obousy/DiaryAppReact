@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, TextInput } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -13,49 +13,24 @@ import ViewItemScreen from './src/screen/ViewItemScreen';
 import AddItemScreen from './src/screen/AddItemScreen';
 import { ItemProvider } from './src/context/Item';
 import EditItemScreen from './src/screen/EditItemScreen';
+import Photo from './src/screen/Photo';
+import Comp from './src/screen/Comp';
 const Stack = createNativeStackNavigator();
-/*
-function Mainpage() {
-  return
-  <View style={{flex: 1, justifyContent: 'center' , alignItems: 'center'}}>
-    <Text>Main Screen</Text>
-  </View>
-}
-const Tab = createBottomTabNavigator(); 
-*/
 export default function App() {
   return (
     <ItemProvider>
       <NavigationContainer>
-        {/*
-      <Text style = 'center'></Text>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={Mainpage} 
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <Icons name="home" color={color} size={size}/>
-          ), 
-        }}
-        />
-        <Tab.Screen name="Notes" component={Secondary} 
-        options={{        
-          tabBarIcon: ({color, size}) => (
-            <Icons name="note" color={color} size={size}/>
-          ), 
-        }}
-        />
-        <Tab.Screen name="Comments" component={Third} 
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <Icons name="graph" color={color} size={size}/>    
-          ), 
-        }} 
-        />    
-        </Tab.Navigator>
-        </NavigationContainer>      
-    }*/
-        }
         <Stack.Navigator initialRouteName="Main">
+          <Stack.Screen
+            name="Comp"
+            component={Comp}
+            options={{ title: "Take Photo" }}
+          />
+          <Stack.Screen
+            name="Photo"
+            component={Photo}
+            options={{ title: "Take" }}
+          />
           <Stack.Screen
             name="Add"
             component={AddItemScreen}
@@ -81,17 +56,6 @@ export default function App() {
             component={EditItemScreen}
             options={{ title: "Edit Notes" }}
           />
-          <Stack.Screen
-            name="Secondary"
-            component={Secondary}
-            options={{ title: "Reviews and Comments" }}
-          />
-          {/*
-        <Stack.Screen
-        name ="Third"
-        component={Third}
-        options={{ title: "Third Screen"}}
-        /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </ItemProvider>

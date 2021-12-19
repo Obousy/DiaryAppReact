@@ -6,7 +6,7 @@ import { actionTypes } from '../help/ActionTypes';
 import Item from '../context/Item';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 const navTheme = DefaultTheme;
-navTheme.colors.background = '#cc5500';
+navTheme.colors.background = 'lightgrey';
 const data = [];
 const reducer = (state, action) => {
     switch (action.type) {
@@ -59,25 +59,25 @@ const ListViewScreen = ({ navigation }) => {
                                 id: item.id,
                                 title: item.title,
                                 page: item.page,
-                                childcomment: item.childcomment, 
-                                teachercomment: item.teachercomment, 
+                                childcomment: item.childcomment,
+                                teachercomment: item.teachercomment,
                                 date: item.date.toUTCString()
                             });
                         }}>
                             <View style={styles.itemContainer}>
                                 <View style={styles.dateContainer}>
-                                    <Text style={styles.dateText}> 
+                                    <Text style={styles.dateText}>
                                         {item.date.toLocaleDateString()}
                                     </Text>
                                     <Text style={styles.timeText}>
                                         {item.date.toLocaleTimeString()}
                                     </Text>
-                                </View> 
+                                </View>
                                 <Text style={styles.titleText}>{item.title}</Text>
                                 <Pressable onPress={() => {
                                     remove(item.id);
                                 }}>
-                                    <MaterialIcons name="delete" size={38} color="navy" />
+                                    <MaterialIcons name="delete" size={35} color="navy" />
                                 </Pressable>
                             </View>
                         </Pressable>
@@ -91,11 +91,11 @@ const ListViewScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     itemContainer: {
         padding: 15,
-        borderBottomWidth: 1,
+        borderBottomWidth: 2,
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
-        borderBottomColor:'navy'
+        borderBottomColor: 'navy'
     },
     dateContainer: {
         flexDirection: 'column',
@@ -107,14 +107,14 @@ const styles = StyleSheet.create({
         color: 'navy'
     },
     timeText: {
-        color: 'navy', 
-    }, 
+        color: 'navy',
+    },
     titleText: {
         fontSize: 20,
         paddingLeft: 15,
         flex: 1,
-        alignSelf: 'flex-start', 
-        fontWeight: 'bold', 
+        alignSelf: 'flex-start',
+        fontWeight: 'bold',
         color: 'navy'
     }
 });

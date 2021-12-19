@@ -21,6 +21,7 @@ const EditItemScreen = ({ navigation, route }) => {
                     setTitle(text)
                 }}
             />
+            <View style={styles.bordername}></View>
             <Text style={styles.textLabel}>Pages Read:</Text>
             <TextInput
                 style={styles.textInput}
@@ -30,7 +31,8 @@ const EditItemScreen = ({ navigation, route }) => {
                     setPage(text)
                 }}
             />
-           <Text style={styles.textLabel}>Child Comments:</Text>
+            <View style={styles.bordername}></View>
+            <Text style={styles.textLabel}>Child Comments:</Text>
             <TextInput
                 style={styles.textInput}
                 placeholder='Enter Comments on your Reading Experience'
@@ -39,7 +41,8 @@ const EditItemScreen = ({ navigation, route }) => {
                     setChildcomment(text)
                 }}
             />
-             <Text style={styles.textLabel}>Teacher Comments:</Text>
+            <View style={styles.borderland}></View>
+            <Text style={styles.textLabel}>Teacher Comments:</Text>
             <TextInput
                 style={styles.textInput}
                 placeholder='*This Section is for your Teacher'
@@ -48,36 +51,54 @@ const EditItemScreen = ({ navigation, route }) => {
                     setTeachercomment(text)
                 }}
             />
-            <Button
-                title="Submit item"
-                onPress={() => {
-                    update(currentItem.id, title, page, childcomment, teachercomment,  currentItem.date, () => navigation.pop());
-                }}
-            />
+            <View style={styles.borderland}></View>
+            <View style={styles.buttoncolor}>
+                <Button
+                    title="Submit item"
+                    color='purple'
+                    onPress={() => {
+                        update(currentItem.id, title, page, childcomment, teachercomment, currentItem.date, () => navigation.pop());
+                    }}
+                />
+            </View>
         </View>
     );
 };
 const styles = StyleSheet.create({
-    itemContainer: {
+    textInput: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: 'navy'
+    },
+    textLabel: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: 'navy'
+    },
+    bordername: {
         padding: 15,
-        borderBottomWidth: 1,
+        borderBottomWidth: 2,
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
+        borderBottomColor: 'navy'
     },
-    dateContainer: {
-        flexDirection: 'column',
-        alignItems: 'center',
-    },
-    dateText: {
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    titleText: {
-        fontSize: 16,
-        paddingLeft: 15,
+    borderland: {
+        padding: 35,
+        borderBottomWidth: 2,
         flex: 1,
-        alignSelf: 'flex-start'
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderBottomColor: 'navy'
+    },
+    buttoncolor: {
+        borderBottomWidth: 5,
+        borderColor: 'lightblue',
+        borderTopWidth: 5,
+        borderRightWidth: 5,
+        borderLeftWidth: 5,
+        padding: 30,
+        backgroundColor: 'lightblue'
     }
 });
 export default EditItemScreen;
