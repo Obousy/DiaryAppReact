@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "K1908502.Mustafa",
-    "slug": "K1908502Mustafa",
+    "name": "DiaryApp React",
+    "slug": "DiaryAppReact",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
